@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>松戸・柏の住まいのリペア・リフォーム相談｜AQUROS（アクラス）</title>
+  <meta name="description" content="床のキズ、ドアの調子、夏の西日に冬の冷え。おうちの「ちょっと困った」をまとめて相談できる、松戸市小金原のAQUROS（アクラス）。点検・お見積もり0円、LINEで写真を送るだけで概算がわかります。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.min.css">
+  <script src="assets/vendor/gsap/gsap.min.js" defer></script>
+  <script src="assets/vendor/gsap/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/main.min.js" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a class="header__logo" href="#top" aria-label="AQUROS（アクラス）ページの先頭へ">
+        <span class="header__logo-en">AQUROS</span>
+        <span class="header__logo-ja">アクラス</span>
+      </a>
+      <!-- TODO: LINE公式アカウントの友だち追加URLに差し替え（ページ内の https://lin.ee/XXXXXXX をすべて置換） -->
+      <a class="button button--line button--small" href="https://lin.ee/XXXXXXX" aria-label="LINEで相談する" data-cta="line-header">
+        <img class="button__icon" src="assets/images/line-icon.png" alt="" width="24" height="24">
+        <span class="button__label">相談する</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="fv" id="top">
+      <div class="fv__inner">
+        <div class="fv__main">
+          <h1 class="fv__title">
+            <span class="fv__title-line">「どこに頼めば…」</span>
+            <span class="fv__title-line">と迷ったら、</span>
+            <span class="fv__title-line">松戸のAQUROSへ。</span>
+          </h1>
+          <img class="fv__illust" src="assets/images/illust/fv-house.svg" alt="ドア・西日・床の傷など、家のあちこちに困りごとがある様子のイラスト" width="480" height="400" fetchpriority="high">
+        </div>
+        <div class="fv__body">
+          <p class="fv__lead">松戸・柏で、15,000件以上のご依頼をいただいてきました<span class="fv__mark">※</span></p>
+          <p class="fv__text">床のキズ、ドアの調子、夏の西日に冬の冷え。おうちの「ちょっと困った」は、ひとつずつ別の業者を探さなくても大丈夫。まとめてAQUROSにご相談ください。</p>
+          <ul class="tag-list">
+            <li class="tag-list__item">点検・お見積もり0円</li>
+            <li class="tag-list__item">24時間365日受付</li>
+            <li class="tag-list__item">カード払いOK</li>
+          </ul>
+          <div class="cta-box" data-hide-fixed-cta>
+            <p class="cta-box__lead">気になるところを写真で送るだけ。<br>おおよその費用をお伝えします</p>
+            <a class="button button--line button--large" href="https://lin.ee/XXXXXXX" data-cta="line-fv">
+              <img class="button__icon" src="assets/images/line-icon.png" alt="" width="24" height="24">
+              <span class="button__label">LINEで相談する</span>
+            </a>
+            <p class="cta-box__note">お電話も24時間受付 <a href="tel:0477105042">047-710-5042</a><br>※水まわり工事を含む、当社の累計ご依頼件数です</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="worries">
+      <div class="worries__inner">
+        <div class="section-heading" data-animate>
+          <p class="section-heading__eyebrow">おうちの「ちょっと困った」</p>
+          <h2 class="section-heading__title">こんなこと、<br>ありませんか？</h2>
+        </div>
+        <ul class="worries__list" data-animate>
+          <li class="worry-card">
+            <img class="worry-card__icon" src="assets/images/illust/worry-door.svg" alt="" width="64" height="64" loading="lazy">
+            <p class="worry-card__body"><strong class="worry-card__title">ドアがギーッ、バタン</strong><span class="worry-card__text">閉まりにくい、音が気になる</span></p>
+          </li>
+          <li class="worry-card">
+            <img class="worry-card__icon" src="assets/images/illust/worry-floor.svg" alt="" width="64" height="64" loading="lazy">
+            <p class="worry-card__body"><strong class="worry-card__title">床のキズやへこみ</strong><span class="worry-card__text">色あせや傷みが目立ってきた</span></p>
+          </li>
+          <li class="worry-card">
+            <img class="worry-card__icon" src="assets/images/illust/worry-sun.svg" alt="" width="64" height="64" loading="lazy">
+            <p class="worry-card__body"><strong class="worry-card__title">西日がまぶしい、暑い</strong><span class="worry-card__text">夏の部屋がなかなか冷えない</span></p>
+          </li>
+          <li class="worry-card">
+            <img class="worry-card__icon" src="assets/images/illust/worry-cold.svg" alt="" width="64" height="64" loading="lazy">
+            <p class="worry-card__body"><strong class="worry-card__title">冬は足もとがひんやり</strong><span class="worry-card__text">床から冷えが伝わってくる</span></p>
+          </li>
+          <li class="worry-card">
+            <img class="worry-card__icon" src="assets/images/illust/worry-window.svg" alt="" width="64" height="64" loading="lazy">
+            <p class="worry-card__body"><strong class="worry-card__title">窓の防犯が心配</strong><span class="worry-card__text">留守のときも安心して出かけたい</span></p>
+          </li>
+          <li class="worry-card">
+            <img class="worry-card__icon" src="assets/images/illust/worry-question.svg" alt="" width="64" height="64" loading="lazy">
+            <p class="worry-card__body"><strong class="worry-card__title">どこに頼めばいいの？</strong><span class="worry-card__text">直したい所があちこちにある</span></p>
+          </li>
+        </ul>
+        <p class="worries__closing">ひとつでも当てはまったら、<br><span class="marker">まずは写真を1枚、</span><br><span class="marker">送ってみてください。</span></p>
+      </div>
+    </section>
+
+    <section class="message">
+      <div class="message__inner" data-animate>
+        <div class="message__profile">
+          <img class="message__photo" src="assets/images/ceo.webp" alt="代表取締役 廣瀬 学" width="208" height="208" loading="lazy">
+          <p class="message__name"><span class="message__role">株式会社廣瀬興業 代表取締役</span><br>廣瀬 学</p>
+        </div>
+        <div class="message__body">
+          <p class="message__eyebrow">代表からのごあいさつ</p>
+          <h2 class="message__title">「一番の会社」と<br>思ってもらえるように。</h2>
+          <p>AQUROSは2017年、ここ松戸市小金原で生まれました。水道工事や住まいの修理で、これまで<span class="marker">15,000件以上</span>のご依頼をいただいてきました。</p>
+          <p>大切にしているのは、お客様とじっくりお話しすること。ほかで断られてしまったご相談にも、技術と熱意で向き合います。</p>
+          <p>「こんなことで呼んでいいのかな」という小さなことこそ、気軽に声をかけてください。「またAQUROSに頼みたい」と思っていただけるよう、ひとつずつ丁寧にお応えします。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="reason">
+      <div class="reason__inner">
+        <div class="section-heading" data-animate>
+          <p class="section-heading__eyebrow">安心していただける理由</p>
+          <h2 class="section-heading__title">AQUROSが<br>選ばれる3つのこと</h2>
+        </div>
+        <div class="reason__list">
+          <article class="reason-card" data-animate>
+            <img class="reason-card__illust" src="assets/images/illust/reason-local.svg" alt="" width="200" height="140" loading="lazy">
+            <span class="reason-card__number">01</span>
+            <h3 class="reason-card__title">地元・松戸で<br>15,000件以上の実績</h3>
+            <p class="reason-card__text">松戸市小金原にお店があります。近くの会社だから、ちょっとしたことでも気軽に呼んでいただけます。</p>
+            <p class="reason-card__note">※水まわり工事を含む累計件数です</p>
+          </article>
+          <article class="reason-card" data-animate>
+            <img class="reason-card__illust" src="assets/images/illust/reason-photo.svg" alt="" width="200" height="140" loading="lazy">
+            <span class="reason-card__number">02</span>
+            <h3 class="reason-card__title">点検・お見積もりは0円。<br>写真を送るだけでもOK</h3>
+            <p class="reason-card__text">LINEで写真を送っていただければ、おおよその費用をお伝えします。工事は、内容と金額にご納得いただいてから。</p>
+          </article>
+          <article class="reason-card" data-animate>
+            <img class="reason-card__illust" src="assets/images/illust/reason-certified.svg" alt="" width="200" height="140" loading="lazy">
+            <span class="reason-card__number">03</span>
+            <h3 class="reason-card__title">水道局の指定工事店。<br>確かな技術で仕上げます</h3>
+            <p class="reason-card__text">AQUROSは、水道局から認可を受けた松戸市指定工事店です。水まわりで培った技術で、住まいの修理もしっかり仕上げます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="appeal">
+      <div class="appeal__inner" data-animate>
+        <div class="appeal__heading">
+          <p class="appeal__eyebrow">松戸の住まいの、かかりつけ窓口</p>
+          <h2 class="appeal__title">家のことは、<br>まずAQUROSに<br>聞けばいい。</h2>
+        </div>
+        <ul class="appeal__list">
+          <li class="appeal__item"><span class="appeal__label">出張点検</span><strong class="appeal__value appeal__value--accent">0円</strong></li>
+          <li class="appeal__item"><span class="appeal__label">お見積もり</span><strong class="appeal__value appeal__value--accent">0円</strong></li>
+          <li class="appeal__item"><span class="appeal__label">ご相談受付</span><strong class="appeal__value">24時間<br>365日</strong></li>
+          <li class="appeal__item"><span class="appeal__label">お支払い</span><strong class="appeal__value">カードOK</strong></li>
+        </ul>
+        <a class="button button--line button--round" href="https://lin.ee/XXXXXXX" data-cta="line-appeal">
+          <img class="button__icon" src="assets/images/line-icon.png" alt="" width="24" height="24">
+          <span class="button__label">LINEで相談してみる</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="service">
+      <div class="service__inner">
+        <div class="section-heading" data-animate>
+          <p class="section-heading__eyebrow">おまかせください</p>
+          <h2 class="section-heading__title">AQUROSにできること</h2>
+        </div>
+        <div class="service__list">
+          <article class="service-card" data-animate>
+            <div class="service-card__visual">
+              <img class="service-card__illust" src="assets/images/illust/service-repair.svg" alt="" width="240" height="150" loading="lazy">
+            </div>
+            <h3 class="service-card__title">住宅リペア</h3>
+            <p class="service-card__text">床・ドア・建具・壁のキズやへこみ、欠けを補修します。取り替えるより費用をおさえて、目立たなく仕上げます。</p>
+          </article>
+          <article class="service-card" data-animate>
+            <div class="service-card__visual">
+              <img class="service-card__illust" src="assets/images/illust/service-flooring.svg" alt="" width="240" height="150" loading="lazy">
+            </div>
+            <h3 class="service-card__title">フローリング上張り</h3>
+            <p class="service-card__text">今の床の上に、新しい床材を重ねる方法です。はがす手間が少ないので、住みながら短い工期で床がきれいになります。</p>
+          </article>
+          <article class="service-card" data-animate>
+            <div class="service-card__visual">
+              <img class="service-card__illust" src="assets/images/illust/service-film.svg" alt="" width="240" height="150" loading="lazy">
+            </div>
+            <h3 class="service-card__title">窓ガラスフィルム</h3>
+            <p class="service-card__text">遮熱フィルムで夏の暑さや西日をやわらげ、防犯フィルムで空き巣対策も。貼るだけなので、窓の交換はいりません。</p>
+          </article>
+        </div>
+        <p class="service__more">このほか、<span class="marker">内装解体・ハウスクリーニング</span>もおまかせください。</p>
+      </div>
+    </section>
+
+    <section class="works">
+      <div class="works__inner">
+        <div class="section-heading" data-animate>
+          <p class="section-heading__eyebrow">ビフォー・アフター</p>
+          <h2 class="section-heading__title">施工事例</h2>
+        </div>
+        <!-- TODO: 掲載許可済みの施工写真と工事情報を受領後に差し替え。WP化時はカスタム投稿「施工事例」のループに置き換える想定 -->
+        <div class="works__list">
+          <article class="work-card">
+            <div class="work-card__visual work-card__visual--placeholder">施工前／施工後の写真</div>
+            <span class="work-card__area">[市区町村]</span>
+            <h3 class="work-card__title">[工事名]</h3>
+            <p class="work-card__meta">工期 [日数]／費用 [金額]</p>
+          </article>
+          <article class="work-card">
+            <div class="work-card__visual work-card__visual--placeholder">施工前／施工後の写真</div>
+            <span class="work-card__area">[市区町村]</span>
+            <h3 class="work-card__title">[工事名]</h3>
+            <p class="work-card__meta">工期 [日数]／費用 [金額]</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="flow">
+      <div class="flow__inner">
+        <div class="section-heading" data-animate>
+          <p class="section-heading__eyebrow">親切丁寧に。仕事を確実に。</p>
+          <h2 class="section-heading__title">ご相談の流れ</h2>
+          <p class="section-heading__lead">工事に入るのは、内容と金額にご納得いただいてから。終わったあとは、一緒に仕上がりを確認します。</p>
+        </div>
+        <ol class="flow__list" data-animate>
+          <li class="flow-step"><img class="flow-step__icon" src="assets/images/illust/flow-consult.svg" alt="" width="56" height="56" loading="lazy"><p class="flow-step__body"><span class="flow-step__number">STEP 1</span><strong class="flow-step__title">LINE・お電話でご相談</strong></p></li>
+          <li class="flow-step"><img class="flow-step__icon" src="assets/images/illust/flow-estimate.svg" alt="" width="56" height="56" loading="lazy"><p class="flow-step__body"><span class="flow-step__number">STEP 2</span><strong class="flow-step__title">無料でお見積もり</strong></p></li>
+          <li class="flow-step"><img class="flow-step__icon" src="assets/images/illust/flow-visit.svg" alt="" width="56" height="56" loading="lazy"><p class="flow-step__body"><span class="flow-step__number">STEP 3</span><strong class="flow-step__title">おうちで点検・ご説明</strong></p></li>
+          <li class="flow-step"><img class="flow-step__icon" src="assets/images/illust/flow-agree.svg" alt="" width="56" height="56" loading="lazy"><p class="flow-step__body"><span class="flow-step__number">STEP 4</span><strong class="flow-step__title">ご納得のうえで工事</strong></p></li>
+          <li class="flow-step"><img class="flow-step__icon" src="assets/images/illust/flow-complete.svg" alt="" width="56" height="56" loading="lazy"><p class="flow-step__body"><span class="flow-step__number">STEP 5</span><strong class="flow-step__title">一緒に確認・お引き渡し</strong></p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="faq">
+      <div class="faq__inner">
+        <div class="section-heading" data-animate>
+          <p class="section-heading__eyebrow">よくいただくご質問</p>
+          <h2 class="section-heading__title">気になること、<br>お答えします</h2>
+        </div>
+        <div class="faq__list" data-animate>
+          <details class="faq__item" open>
+            <summary class="faq__question"><span class="faq__q">Q.</span>こんな小さなことでも頼めますか？</summary>
+            <p class="faq__answer">もちろんです。床の小さなキズやドアの調子など、どんなことでもお気軽にどうぞ。</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question"><span class="faq__q">Q.</span>見積もりにお金はかかりますか？</summary>
+            <p class="faq__answer">出張点検・お見積もりは0円です。LINEで写真を送っていただければ、おおよその金額もお伝えします。</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question"><span class="faq__q">Q.</span>相談したら、必ず頼まないとだめですか？</summary>
+            <p class="faq__answer">いいえ、大丈夫です。お見積もりの内容と金額にご納得いただけたときだけ、工事に入ります。</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question"><span class="faq__q">Q.</span>どのあたりまで来てもらえますか？</summary>
+            <p class="faq__answer">松戸市・柏市を中心に、関東全域にうかがっています。</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question"><span class="faq__q">Q.</span>支払い方法は？</summary>
+            <p class="faq__answer">クレジットカードでのお支払いにも対応しています。</p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question"><span class="faq__q">Q.</span>夜や休みの日でも連絡できますか？</summary>
+            <p class="faq__answer">はい。お問い合わせは24時間365日受け付けています。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="contact__inner">
+        <img class="contact__illust" src="assets/images/illust/contact-phone.svg" alt="" width="240" height="160" loading="lazy">
+        <div class="section-heading" data-animate>
+          <h2 class="section-heading__title">写真を1枚送るだけ。<br>まずはLINEでどうぞ</h2>
+          <p class="section-heading__lead section-heading__lead--left">困ったときに、頼れるプロがいます。何から直せばいいか決まっていなくても大丈夫。点検・お見積もりは0円です。</p>
+        </div>
+        <ol class="contact__steps" data-animate>
+          <li class="contact__step"><span class="contact__number">STEP 1</span><strong class="contact__step-title">友だち追加</strong><span class="contact__step-text">下のボタンから、AQUROSのLINEを追加します。</span></li>
+          <li class="contact__step"><span class="contact__number">STEP 2</span><strong class="contact__step-title">写真とひとことを送る</strong><span class="contact__step-text">「ドアが閉まりにくい」など、短くて大丈夫です。</span></li>
+          <li class="contact__step"><span class="contact__number">STEP 3</span><strong class="contact__step-title">担当者からお返事</strong><span class="contact__step-text">内容を見て、トークでお返事します。</span></li>
+        </ol>
+        <div class="contact__action" data-hide-fixed-cta>
+          <a class="button button--line button--xlarge" href="https://lin.ee/XXXXXXX" data-cta="line-contact">
+            <img class="button__icon button__icon--large" src="assets/images/line-icon.png" alt="" width="32" height="32">
+            <span class="button__label">LINEで相談する</span>
+          </a>
+          <div class="contact__qr">
+            <!-- TODO: LINE公式アカウントのQRコード画像（assets/images/line-qr.png）を受領後、placeholderをimgに差し替え -->
+            <div class="contact__qr-placeholder">QRコード</div>
+            <p class="contact__qr-text">パソコンでご覧の方は<br>スマートフォンで<br>読み取ってください</p>
+          </div>
+        </div>
+        <p class="contact__tel">お電話も24時間365日受付<br><a class="contact__tel-link" href="tel:0477105042" data-cta="tel-contact">047-710-5042</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__info">
+        <p class="footer__logo">AQUROS<span class="footer__logo-ja">アクラス</span></p>
+        <p class="footer__address">運営会社：株式会社廣瀬興業（2017年設立）<br>代表取締役：廣瀬 学<br>松戸市指定工事店<br>〒270-0021 千葉県松戸市小金原4-11-11 鈴木店舗102<br>TEL 047-710-5042／FAX 047-710-9009</p>
+        <div class="footer__sns">
+          <p class="footer__sns-title">SNSでもAQUROSをチェック</p>
+          <ul class="footer__sns-list">
+            <li><a class="sns-link" href="https://www.instagram.com/aquros_matsudo/" target="_blank" rel="noopener">Instagram<svg class="sns-link__icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></li>
+            <li><a class="sns-link" href="https://www.tiktok.com/@aquros7" target="_blank" rel="noopener">TikTok<svg class="sns-link__icon" width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></li>
+          </ul>
+        </div>
+      </div>
+      <nav class="footer__nav" aria-label="フッター">
+        <!-- TODO: プライバシーポリシーのURLを確定後に差し替え -->
+        <a class="footer__link" href="#">プライバシーポリシー</a>
+        <a class="footer__link" href="#top">ページの先頭へ</a>
+      </nav>
+    </div>
+    <p class="footer__copyright"><small>&copy; AQUROS / 株式会社廣瀬興業</small></p>
+  </footer>
+
+  <div class="fixed-cta" data-fixed-cta>
+    <a class="button button--line button--block" href="https://lin.ee/XXXXXXX" data-cta="line-fixed">
+      <img class="button__icon" src="assets/images/line-icon.png" alt="" width="24" height="24">
+      <span class="button__label">LINEで相談する</span>
+    </a>
+  </div>
+</body>
+</html>

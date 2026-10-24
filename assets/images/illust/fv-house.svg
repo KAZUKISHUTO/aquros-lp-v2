@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 400" width="480" height="400">
+<circle cx="240" cy="212" r="172" fill="#FFFFFF"></circle>
+<g fill="none" stroke="#B85016" stroke-width="1.5" stroke-linecap="round"><circle cx="424" cy="72" r="14"></circle><path d="M424 44v-8M424 108v-8M452 72h8M388 72h8M444 52l6-6M398 98l6-6M444 92l6 6M398 46l6 6"></path></g>
+<g stroke="#2B4A5C" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+<rect x="316" y="96" width="28" height="56" fill="#FFFFFF"></rect>
+<rect x="104" y="176" width="272" height="176" fill="#FFFFFF"></rect>
+<path d="M84 184 240 72 396 184" fill="#FFFFFF"></path>
+<rect x="212" y="264" width="56" height="88" rx="2" fill="#FFFFFF"></rect>
+<rect x="136" y="208" width="64" height="48" fill="#FFFFFF"></rect><path d="M168 208v48M136 232h64" fill="none"></path>
+<rect x="280" y="208" width="64" height="48" fill="#FFFFFF"></rect><path d="M312 208v48M280 232h64" fill="none"></path>
+<path d="M40 352h400" fill="none"></path>
+<path d="M60 352c0-20 12-32 24-32s20 10 20 22" fill="none"></path>
+<path d="M120 300l18 6M126 316l20 4" fill="none" stroke="#B85016" stroke-width="1.5"></path>
+</g>
+<circle cx="258" cy="310" r="3" fill="#2B4A5C"></circle>
+<path d="M28 84a12 12 0 0 1 12-12h132a12 12 0 0 1 12 12v32a12 12 0 0 1-12 12h-96l-16 16v-16H40a12 12 0 0 1-12-12z" fill="#2B4A5C"></path>
+<text font-family="Noto Sans JP, Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" x="106" y="106" text-anchor="middle" font-size="18" font-weight="700" fill="#FFFFFF">まとめて相談OK</text>
+<circle cx="296" cy="296" r="18" fill="#F6D6BE" stroke="#B85016" stroke-width="1.5"></circle><text font-family="Noto Sans JP, Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" x="296" y="303" text-anchor="middle" font-size="20" font-weight="700" fill="#B85016">?</text><rect x="320" y="282" width="64" height="28" rx="14" fill="#FFFFFF" stroke="#DDD8CF"></rect><text font-family="Noto Sans JP, Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" x="352" y="301" text-anchor="middle" font-size="16" font-weight="500" fill="#2B4A5C">ドア</text>
+<circle cx="372" cy="196" r="18" fill="#F6D6BE" stroke="#B85016" stroke-width="1.5"></circle><text font-family="Noto Sans JP, Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" x="372" y="203" text-anchor="middle" font-size="20" font-weight="700" fill="#B85016">?</text><rect x="396" y="210" width="64" height="28" rx="14" fill="#FFFFFF" stroke="#DDD8CF"></rect><text font-family="Noto Sans JP, Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" x="428" y="229" text-anchor="middle" font-size="16" font-weight="500" fill="#2B4A5C">西日</text>
+<circle cx="156" cy="284" r="18" fill="#F6D6BE" stroke="#B85016" stroke-width="1.5"></circle><text font-family="Noto Sans JP, Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" x="156" y="291" text-anchor="middle" font-size="20" font-weight="700" fill="#B85016">?</text><rect x="44" y="300" width="80" height="28" rx="14" fill="#FFFFFF" stroke="#DDD8CF"></rect><text font-family="Noto Sans JP, Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Meiryo, sans-serif" x="84" y="319" text-anchor="middle" font-size="16" font-weight="500" fill="#2B4A5C">床の傷</text>
+</svg>
