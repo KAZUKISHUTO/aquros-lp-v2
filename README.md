@@ -38,6 +38,8 @@ npx terser@5 assets/js/main.js -c -m -o assets/js/main.min.js
 - ブレークポイント：`min-width: 768px` と `min-width: 1024px`（モバイルファースト）
 - CSS変数は`style.css`冒頭の`:root`で管理（色・フォント・余白・コンテンツ幅）
 - フォント：Noto Sans JP（400/500/700）のみ
+- 改行：見出しや短い文言は`word-break: keep-all`で言葉の途中で改行しない。改行してよい位置（文節の区切り）に`<wbr>`を入れる。対象のクラスは`style.css`冒頭にまとめている
+- `text-wrap: pretty`は幅が決まっている文章にだけ使う。Safariでは文字量に合わせて幅が決まる要素に使うと、見出しが途中で折り返されるため
 - イラストはすべてオリジナルのSVG（`assets/images/illust/`）。線色 #2B4A5C・差し色 #B85016 で統一しており、色を変える場合はSVGファイル内の値を置換する
 - SVG内の文字（FVの「まとめて相談OK」「ドア」など）は`<img>`読み込みのためWebフォントが効かず、端末の日本語フォントで表示される
 - アニメーション：`data-animate`を付けた要素をスクロールでフェードイン。`prefers-reduced-motion`有効時とGSAP未読込時は動かさず、そのまま表示する

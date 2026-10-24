@@ -32,6 +32,10 @@ html {
   }
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   padding-bottom: var(--fixed-cta-space);
   font-family: var(--font-family-base);
@@ -40,6 +44,49 @@ body {
   letter-spacing: 0.04em;
   color: var(--color-text);
   background: var(--color-white);
+  line-break: strict;
+}
+
+/*
+  見出しや短い文言は、言葉の途中で改行しない。改行してよい位置はHTMLの<wbr>で指定する。
+  Safariはtext-wrap: prettyで幅の計算がずれ、見出しが途中で折り返されるため使わない
+*/
+.fv__lead,
+.cta-box__lead,
+.cta-box__note,
+.section-heading__eyebrow,
+.section-heading__title,
+.worry-card__title,
+.worry-card__text,
+.worries__closing,
+.message__name,
+.message__title,
+.reason-card__title,
+.reason-card__note,
+.appeal__eyebrow,
+.appeal__title,
+.service-card__title,
+.service__more,
+.work-card__title,
+.flow-step__title,
+.faq__question,
+.contact__step-title,
+.contact__step-text,
+.contact__tel,
+.footer__address,
+.drawer__link,
+.drawer__tel-label {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+/* 文章は行末に1〜2文字だけ残らないよう整える（幅が決まっている要素にだけ使う） */
+.fv__text,
+.section-heading__lead,
+.message__body p,
+.reason-card__text,
+.service-card__text,
+.faq__answer {
   text-wrap: pretty;
 }
 
@@ -55,11 +102,14 @@ body {
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
-  transition: opacity 0.2s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.button:hover {
-  opacity: 0.88;
+@media (hover: hover) {
+  .button:hover {
+    box-shadow: 0 6px 16px rgba(6, 199, 85, 0.28);
+    transform: translateY(-2px);
+  }
 }
 
 .button--line {
@@ -105,7 +155,13 @@ body {
 }
 
 .marker {
-  background: linear-gradient(transparent 60%, var(--color-peach) 60%);
+  background: linear-gradient(var(--color-peach), var(--color-peach)) no-repeat left bottom / 100% 40%;
+  transition: background-size 1.2s ease-out;
+}
+
+/* JSで付与し、画面に入ったら外してマーカーを引く */
+.marker--hidden {
+  background-size: 0 40%;
 }
 
 .tag-list {
@@ -169,6 +225,7 @@ body {
 }
 
 .section-heading__lead {
+  width: 100%;
   max-width: var(--read-width);
   text-align: left;
 }
@@ -269,13 +326,11 @@ body {
 
 .work-card {
   display: flex;
-  flex: 0 0 min(80%, 320px);
   flex-direction: column;
   gap: 16px;
   padding: 16px;
   border-radius: var(--radius);
   background: var(--color-white);
-  scroll-snap-align: start;
 }
 
 .work-card__visual {
@@ -344,6 +399,163 @@ body {
   font-weight: 700;
 }
 
+.menu-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-small);
+  color: var(--color-navy);
+}
+
+.menu-button__icon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+}
+
+.menu-button__bar {
+  height: 2px;
+  border-radius: 1px;
+  background: currentColor;
+}
+
+.menu-button__icon--close::before,
+.menu-button__icon--close::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  margin-top: -1px;
+  border-radius: 1px;
+  background: currentColor;
+  transform: rotate(35deg);
+}
+
+.menu-button__icon--close::after {
+  transform: rotate(-35deg);
+}
+
+.menu-button__label {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.carousel__viewport {
+  display: flex;
+  gap: 16px;
+  padding: 0 var(--page-gutter) 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--page-gutter);
+}
+
+/* ボタンで操作できるときだけスクロールバーを隠す */
+.carousel--ready .carousel__viewport {
+  padding-bottom: 0;
+  scrollbar-width: none;
+}
+
+.carousel--ready .carousel__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__slide {
+  flex: 0 0 min(80%, 320px);
+  scroll-snap-align: start;
+}
+
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 var(--page-gutter);
+}
+
+.carousel__button {
+  display: flex;
+  flex: 0 0 56px;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  border: 1.5px solid var(--color-navy);
+  border-radius: 50%;
+  color: var(--color-navy);
+  background: var(--color-white);
+  transition: color 0.3s, background 0.3s;
+}
+
+@media (hover: hover) {
+  .carousel__button:hover {
+    color: var(--color-white);
+    background: var(--color-navy);
+  }
+}
+
+.carousel__icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.carousel__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.carousel__dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 44px;
+}
+
+.carousel__dot::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid var(--color-navy);
+  border-radius: 999px;
+  transition: width 0.4s, background 0.4s;
+}
+
+.carousel__dot[aria-current="true"]::before {
+  width: 24px;
+  background: var(--color-navy);
+}
+
+.carousel__pause {
+  align-self: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 14px;
+  color: var(--color-sub);
+  background: var(--color-white);
+}
+
 .sns-link {
   display: inline-flex;
   align-items: center;
@@ -385,6 +597,17 @@ body {
   padding: 8px var(--page-gutter);
 }
 
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* スマホでは画面下の固定ボタンがあるため、ヘッダーはメニューのみ */
+.header__line {
+  display: none;
+}
+
 .header__logo {
   display: flex;
   align-items: baseline;
@@ -404,6 +627,150 @@ body {
   font-size: 12px;
   font-weight: 500;
   color: var(--color-sub);
+}
+
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  visibility: hidden;
+  transition: visibility 0s 0.4s;
+}
+
+.drawer--open {
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.drawer__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(34, 42, 46, 0.4);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.drawer--open .drawer__overlay {
+  opacity: 1;
+}
+
+.drawer__panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: min(100%, 400px);
+  padding: 0 var(--page-gutter) calc(40px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--color-white);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.drawer--open .drawer__panel {
+  transform: none;
+}
+
+.drawer__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.drawer__logo {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+  color: var(--color-navy);
+}
+
+.drawer__logo-ja {
+  margin-left: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-sub);
+}
+
+.drawer__item {
+  opacity: 0;
+  transform: translateX(16px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+/* 開いたとき、項目を上から順にふわっと表示する */
+.drawer--open .drawer__item {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(0.15s + var(--i) * 0.05s);
+}
+
+.drawer__link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  padding: 8px 40px 8px 8px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-navy);
+  transition: background 0.3s;
+}
+
+.drawer__link::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid var(--color-accent);
+  border-right: 2px solid var(--color-accent);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+@media (hover: hover) {
+  .drawer__link:hover {
+    background: var(--color-bg-soft);
+  }
+}
+
+.drawer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.drawer__tel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px;
+  border-radius: var(--radius);
+  line-height: 1.5;
+  background: var(--color-bg-soft);
+}
+
+.drawer__tel-label {
+  font-size: 14px;
+  color: var(--color-sub);
+}
+
+.drawer__tel-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-navy);
+  text-decoration: underline;
 }
 
 .footer {
@@ -439,6 +806,10 @@ body {
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.04em;
+}
+
+.footer__nowrap {
+  white-space: nowrap;
 }
 
 .footer__sns {
@@ -767,14 +1138,6 @@ body {
   margin: 0 auto;
 }
 
-.works__list {
-  display: flex;
-  gap: 16px;
-  padding: 0 var(--page-gutter) 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-}
-
 .flow {
   padding: var(--section-space) var(--page-gutter);
 }
@@ -913,15 +1276,16 @@ body {
   max-width: 800px;
 }
 
+/* flexだとSafariが横幅を狭く計算してはみ出すため、gridで並べる */
 .contact__qr {
-  display: flex;
+  display: grid;
+  grid-template-columns: 120px max-content;
   align-items: center;
   gap: 16px;
 }
 
 .contact__qr-placeholder {
   display: flex;
-  flex: 0 0 120px;
   align-items: center;
   justify-content: center;
   height: 120px;
@@ -934,6 +1298,7 @@ body {
 
 .contact__qr-text {
   font-size: 12px;
+  white-space: nowrap;
   line-height: 1.7;
   color: var(--color-sub);
 }
@@ -950,6 +1315,14 @@ body {
 }
 
 @media (min-width: 768px) {
+  .header__line {
+    display: inline-flex;
+  }
+
+  .carousel__slide {
+    flex-basis: calc((100% - 16px) / 2);
+  }
+
   .worries__list,
   .flow__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -968,8 +1341,6 @@ body {
     flex: 2 1 0;
   }
 
-  .reason__list,
-  .service__list,
   .contact__steps {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1012,14 +1383,21 @@ body {
     flex: 9 1 0;
   }
 
-  .worries__list {
+  .worries__list,
+  .reason__list,
+  .service__list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .works__list {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    overflow: visible;
+  /* PCでは隣のカードが端で切れて見えないよう、表示枠をコンテンツ幅に収める */
+  .carousel__viewport {
+    margin: 0 var(--page-gutter);
+    padding-inline: 0;
+    scroll-padding-inline: 0;
+  }
+
+  .carousel__slide {
+    flex-basis: calc((100% - 32px) / 3);
   }
 
   .flow__list {
@@ -1029,5 +1407,19 @@ body {
   .flow-step {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button,
+  .marker,
+  .drawer,
+  .drawer__overlay,
+  .drawer__panel,
+  .drawer__item,
+  .drawer__link,
+  .carousel__button,
+  .carousel__dot::before {
+    transition: none;
   }
 }
