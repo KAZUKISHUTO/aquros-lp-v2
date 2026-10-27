@@ -11,11 +11,13 @@
   --color-border: #ddd8cf;
   --color-photo: #e4e1da;
   --color-white: #ffffff;
-  --font-family-base: "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  --font-family-base:
+    "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    Meiryo, sans-serif;
   --font-size-heading: clamp(24px, 6.2vw, 32px);
   --content-width: 1040px;
   --read-width: 640px;
-  --page-gutter: 24px;
+  --page-gutter: 16px;
   --section-space: 96px;
   --radius: 16px;
   --radius-small: 8px;
@@ -44,50 +46,6 @@ body {
   letter-spacing: 0.04em;
   color: var(--color-text);
   background: var(--color-white);
-  line-break: strict;
-}
-
-/*
-  見出しや短い文言は、言葉の途中で改行しない。改行してよい位置はHTMLの<wbr>で指定する。
-  Safariはtext-wrap: prettyで幅の計算がずれ、見出しが途中で折り返されるため使わない
-*/
-.fv__lead,
-.cta-box__lead,
-.cta-box__note,
-.section-heading__eyebrow,
-.section-heading__title,
-.worry-card__title,
-.worry-card__text,
-.worries__closing,
-.message__name,
-.message__title,
-.reason-card__title,
-.reason-card__note,
-.appeal__eyebrow,
-.appeal__title,
-.service-card__title,
-.service__more,
-.work-card__title,
-.flow-step__title,
-.faq__question,
-.contact__step-title,
-.contact__step-text,
-.contact__tel,
-.footer__address,
-.drawer__link,
-.drawer__tel-label {
-  word-break: keep-all;
-  overflow-wrap: anywhere;
-}
-
-/* 文章は行末に1〜2文字だけ残らないよう整える（幅が決まっている要素にだけ使う） */
-.fv__text,
-.section-heading__lead,
-.message__body p,
-.reason-card__text,
-.service-card__text,
-.faq__answer {
-  text-wrap: pretty;
 }
 
 /* Components */
@@ -102,7 +60,9 @@ body {
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 
 @media (hover: hover) {
@@ -155,7 +115,8 @@ body {
 }
 
 .marker {
-  background: linear-gradient(var(--color-peach), var(--color-peach)) no-repeat left bottom / 100% 40%;
+  background: linear-gradient(var(--color-peach), var(--color-peach)) no-repeat
+    left bottom / 100% 40%;
   transition: background-size 1.2s ease-out;
 }
 
@@ -233,21 +194,24 @@ body {
 .worry-card {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px 24px 16px 16px;
+  gap: 12px;
+  padding: 16px;
   border-radius: var(--radius);
   background: var(--color-bg-soft);
 }
 
+/* スマホでは文章の幅を確保するため、アイコンを小さくする */
 .worry-card__icon {
-  flex: 0 0 64px;
-  width: 64px;
-  height: 64px;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
 }
 
 .worry-card__body {
   display: flex;
+  flex: 1 1 0;
   flex-direction: column;
+  min-width: 0;
 }
 
 .worry-card__title {
@@ -299,14 +263,22 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 16px 16px 24px;
+  border-radius: var(--radius);
+  background: var(--color-bg-soft);
 }
 
 .service-card__visual {
   display: flex;
   justify-content: center;
-  padding: 24px;
-  border-radius: var(--radius);
-  background: var(--color-bg-soft);
+  padding: 16px;
+  border-radius: var(--radius-small);
+  background: var(--color-white);
+}
+
+.service-card__title,
+.service-card__text {
+  padding: 0 8px;
 }
 
 .service-card__illust {
@@ -385,7 +357,9 @@ body {
 
 .flow-step__body {
   display: flex;
+  flex: 1 1 0;
   flex-direction: column;
+  min-width: 0;
   line-height: 1.6;
 }
 
@@ -499,7 +473,9 @@ body {
   border-radius: 50%;
   color: var(--color-navy);
   background: var(--color-white);
-  transition: color 0.3s, background 0.3s;
+  transition:
+    color 0.3s,
+    background 0.3s;
 }
 
 @media (hover: hover) {
@@ -537,23 +513,14 @@ body {
   height: 12px;
   border: 1.5px solid var(--color-navy);
   border-radius: 999px;
-  transition: width 0.4s, background 0.4s;
+  transition:
+    width 0.4s,
+    background 0.4s;
 }
 
 .carousel__dot[aria-current="true"]::before {
   width: 24px;
   background: var(--color-navy);
-}
-
-.carousel__pause {
-  align-self: center;
-  min-height: 44px;
-  padding: 0 20px;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  font-size: 14px;
-  color: var(--color-sub);
-  background: var(--color-white);
 }
 
 .sns-link {
@@ -702,7 +669,9 @@ body {
 .drawer__item {
   opacity: 0;
   transform: translateX(16px);
-  transition: opacity 0.4s, transform 0.4s;
+  transition:
+    opacity 0.4s,
+    transform 0.4s;
 }
 
 /* 開いたとき、項目を上から順にふわっと表示する */
@@ -806,10 +775,6 @@ body {
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0.04em;
-}
-
-.footer__nowrap {
-  white-space: nowrap;
 }
 
 .footer__sns {
@@ -1298,7 +1263,6 @@ body {
 
 .contact__qr-text {
   font-size: 12px;
-  white-space: nowrap;
   line-height: 1.7;
   color: var(--color-sub);
 }
@@ -1319,11 +1283,23 @@ body {
     display: inline-flex;
   }
 
+  .worry-card {
+    gap: 16px;
+    padding: 16px 24px 16px 16px;
+  }
+
+  .worry-card__icon {
+    flex-basis: 64px;
+    width: 64px;
+    height: 64px;
+  }
+
   .carousel__slide {
     flex-basis: calc((100% - 16px) / 2);
   }
 
   .worries__list,
+  .service__list,
   .flow__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1384,9 +1360,21 @@ body {
   }
 
   .worries__list,
-  .reason__list,
-  .service__list {
+  .reason__list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .service__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  /* 4列ではカードが細くなるため、余白を詰めてイラストを大きく見せる */
+  .service-card {
+    padding: 12px 12px 24px;
+  }
+
+  .service-card__visual {
+    padding: 12px 0;
   }
 
   /* PCでは隣のカードが端で切れて見えないよう、表示枠をコンテンツ幅に収める */

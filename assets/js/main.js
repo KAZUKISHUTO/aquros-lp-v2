@@ -77,7 +77,6 @@
     const slides = Array.from(viewport.children);
     const controls = carousel.querySelector("[data-carousel-controls]");
     const dotsBox = carousel.querySelector("[data-carousel-dots]");
-    const pauseButton = carousel.querySelector("[data-carousel-pause]");
     const interval = 6000;
     let positions = [];
     let dots = [];
@@ -102,7 +101,6 @@
     // 読んでいる途中で動かないよう、一度でも操作されたら自動切り替えを止める
     const stopAutoplay = () => {
       stopped = true;
-      pauseButton.textContent = "自動で切り替える";
     };
 
     // 画面幅によって一度に見える枚数が変わるため、止まれる位置とドットを作り直す
@@ -134,7 +132,6 @@
 
       const scrollable = positions.length > 1;
       controls.hidden = !scrollable;
-      pauseButton.hidden = !scrollable || reduceMotion;
       carousel.classList.toggle("carousel--ready", scrollable);
       updateCurrent();
     };
@@ -146,14 +143,6 @@
     carousel.querySelector("[data-carousel-next]").addEventListener("click", () => {
       stopAutoplay();
       goTo(current + 1);
-    });
-    pauseButton.addEventListener("click", () => {
-      if (stopped) {
-        stopped = false;
-        pauseButton.textContent = "自動の切り替えを止める";
-      } else {
-        stopAutoplay();
-      }
     });
 
     let scrollFrame = 0;
