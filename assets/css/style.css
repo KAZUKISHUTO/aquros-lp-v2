@@ -312,6 +312,12 @@ body {
   background: var(--color-photo);
 }
 
+.work-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .work-card__visual--placeholder {
   display: flex;
   align-items: flex-end;
@@ -1261,6 +1267,12 @@ body {
   background: var(--color-white);
 }
 
+.contact__qr-image {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-small);
+}
+
 .contact__qr-text {
   font-size: 12px;
   line-height: 1.7;
@@ -1274,6 +1286,48 @@ body {
 
 .contact__tel-link {
   font-weight: 500;
+  color: var(--color-navy);
+  text-decoration: underline;
+}
+
+/* WordPress化したときの固定ページ（プライバシーポリシーなど） */
+.page {
+  padding: 64px var(--page-gutter) var(--section-space);
+}
+
+.page__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: var(--read-width);
+  margin: 0 auto;
+}
+
+.page__title {
+  font-size: var(--font-size-heading);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.page__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.page__content h2 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.page__content ul,
+.page__content ol {
+  padding-left: 1.5em;
+  list-style: revert;
+}
+
+.page__content a {
   color: var(--color-navy);
   text-decoration: underline;
 }
@@ -1409,5 +1463,12 @@ body {
   .carousel__button,
   .carousel__dot::before {
     transition: none;
+  }
+}
+
+/* WordPressの管理バー表示中（ログイン時のみ）は、固定ヘッダーを管理バーの下にずらす */
+@media (min-width: 783px) {
+  .admin-bar .header {
+    top: 32px;
   }
 }

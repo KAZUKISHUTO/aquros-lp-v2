@@ -9,6 +9,10 @@
 aquros-lp-v2/
 ├── index.html
 ├── README.md
+├── scripts/
+│   └── build-theme.sh       WordPressテーマのzipを作る
+├── wp-theme/
+│   └── aquros-lp/           WordPressテーマ
 └── assets/
     ├── css/
     │   ├── reset.css        全リセット型
@@ -65,18 +69,48 @@ npx terser@5 assets/js/main.js -c -m -o assets/js/main.min.js
 
 - LINEアイコンはLINEヤフーのロゴガイドライン（クリアスペース等）を公開前に確認すること。
 
-## WordPress化の想定
+## WordPressテーマ
 
-| 静的HTML | WordPress化後 |
+`wp-theme/aquros-lp/` にWordPressテーマがある。静的版の`index.html`をセクションごとに分割したもので、見た目・CSS・JSは静的版と共通。
+
+```text
+wp-theme/aquros-lp/
+├── style.css            テーマ情報のみ（スタイルは assets/css/style.min.css）
+├── functions.php        アセット読み込み・タイトル/OGP・カスタマイザー・カスタム投稿・ACF
+├── header.php / footer.php
+├── front-page.php       トップページ（template-partsを順に読み込む）
+├── index.php            固定ページ（プライバシーポリシーなど）
+├── screenshot.png
+└── template-parts/      section-*.php（各セクション）
+```
+
+### アップロード用zipの作成
+
+テーマの`assets/`はリポジトリに含めず、静的版の`assets/`からコピーして作る（二重管理を防ぐため）。
+
+```bash
+sh scripts/build-theme.sh   # dist/aquros-lp.zip ができる
+```
+
+管理画面の「外観 > テーマ > 新規追加 > テーマのアップロード」で`dist/aquros-lp.zip`をアップロードし、有効化する。
+
+### 管理画面で更新する項目
+
+| 項目 | 場所 |
 |---|---|
-| `.header` / `.footer` | `header.php` / `footer.php` |
-| 各`<section>` | `template-parts/` のテンプレートパーツ |
-| `.works__list` 内の `.work-card` | カスタム投稿タイプ「施工事例」のループ |
-| `.faq__list` 内の `.faq__item` | カスタムフィールド（繰り返し）またはカスタム投稿 |
-| LINE URL・電話番号 | テーマ設定またはカスタムフィールドで一元管理 |
-| `assets/` の参照 | `get_theme_file_uri()` に置き換え、`wp_enqueue_style()` / `wp_enqueue_script()` で読み込み |
+| LINE 友だち追加URL・QRコード画像・電話番号 | 外観 > カスタマイズ > AQUROS 連絡先 |
+| 施工事例（工事名・写真・地域・工期・費用・並び順） | 施工事例（カスタム投稿）。地域・工期・費用はACFの入力欄 |
+| プライバシーポリシーのリンク | 設定 > プライバシー で選んだページ（未設定ならリンクを出さない） |
+| ファビコン | 外観 > カスタマイズ > サイト基本情報 > サイトアイコン（未設定ならテーマの画像を使う） |
+
+- 必要なプラグイン：Advanced Custom Fields（無料版）。入力欄は`functions.php`で登録しているため、ACF側での設定は不要
+- 施工事例が1件もない間は、施工事例セクションとメニューの項目を表示しない
+- タイトル・説明文・OGPは`functions.php`の`aquros_page_meta()`で出力している。SEOプラグインを入れる場合は二重出力にならないよう、`aquros_output_meta`のフックを外す
+- 本文の文章（お悩み・できること・FAQなど）は`template-parts/`に直接書いている。変更するときは静的版の`index.html`と両方を直す
+- 必要環境：WordPress 6.3以上、PHP 7.4以上
 
 ## 確認状況
 
 - 390px / 768px / 1280px で表示確認済み（横スクロールなし、画像読み込み・アニメーション・固定ボタンの切り替えを確認）
+- WordPressテーマは WordPress Playground（WordPress 7.1 / PHP 8.3、ACF有効）で動作確認済み（PHPエラーなし、施工事例のループ・ACF入力欄・カスタマイザー・管理バー表示時のヘッダー位置を確認）
 - 実機（iOS Safari / Android Chrome）での確認、PageSpeed Insightsでの計測は未実施

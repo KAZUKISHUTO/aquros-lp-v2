@@ -26,3 +26,7 @@ package-lock.json
 
 # Claude Code ローカル設定
 .claude/settings.local.json
+
+# WordPressテーマ（assets/ は scripts/build-theme.sh でコピーして作る）
+wp-theme/aquros-lp/assets/
+dist/
