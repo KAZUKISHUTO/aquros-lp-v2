@@ -179,6 +179,57 @@
     measure();
   });
 
+  // 施工事例の写真を拡大表示する（カードの写真とラベルを読み取ってモーダルに並べる）
+  const workModal = document.querySelector("[data-work-modal]");
+
+  if (workModal && typeof workModal.showModal === "function") {
+    const modalTitle = workModal.querySelector("[data-work-modal-title]");
+    const modalPhotos = workModal.querySelector("[data-work-modal-photos]");
+    let opener = null;
+
+    document.querySelectorAll("[data-work-zoom]").forEach((button) => {
+      button.hidden = false;
+      button.addEventListener("click", () => {
+        const card = button.closest(".work-card");
+        modalTitle.textContent = card.querySelector(".work-card__title").textContent;
+        modalPhotos.textContent = "";
+        card.querySelectorAll(".work-card__image").forEach((image) => {
+          const figure = document.createElement("figure");
+          figure.className = "work-modal__photo";
+          const large = document.createElement("img");
+          large.className = "work-modal__image";
+          // カードでは切り抜いて表示しているため、拡大時は元の比率の画像を使う
+          large.src = image.dataset.full || image.src;
+          large.alt = image.alt;
+          figure.append(large);
+          const label = image.closest("figure")?.querySelector("figcaption");
+          if (label) {
+            figure.append(label.cloneNode(true));
+          }
+          modalPhotos.append(figure);
+        });
+        opener = button;
+        workModal.showModal();
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    // Safariはクリックでボタンにフォーカスが移らないため、閉じたら開いたボタンへ明示的に戻す
+    workModal.addEventListener("close", () => {
+      document.body.style.overflow = "";
+      opener?.focus({ preventScroll: true });
+    });
+    // 写真の外側（暗い背景）を押しても閉じる
+    workModal.addEventListener("click", (event) => {
+      if (event.target === workModal) {
+        workModal.close();
+      }
+    });
+    workModal.querySelector("[data-work-modal-close]").addEventListener("click", () => {
+      workModal.close();
+    });
+  }
+
   // GSAPが読み込めない環境でも内容が見えるよう、初期状態の非表示はJS側でのみ設定する
   if (reduceMotion || !window.gsap || !window.ScrollTrigger) {
     return;

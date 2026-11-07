@@ -276,8 +276,10 @@ body {
   background: var(--color-white);
 }
 
-.service-card__title,
-.service-card__text {
+.service-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   padding: 0 8px;
 }
 
@@ -306,7 +308,8 @@ body {
 }
 
 .work-card__visual {
-  aspect-ratio: 4 / 3;
+  position: relative;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: var(--radius-small);
   background: var(--color-photo);
@@ -316,6 +319,173 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* 施工前・施工後の写真を左右に並べる */
+.work-card__compare {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.work-card__photo {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius-small);
+  background: var(--color-photo);
+}
+
+.work-card__label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--color-navy);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.work-card__label--after {
+  color: var(--color-white);
+  background: var(--color-accent);
+}
+
+.work-card__arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-white);
+  box-shadow: 0 2px 8px rgba(34, 42, 46, 0.2);
+  transform: translate(-50%, -50%);
+}
+
+.work-card__arrow::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -6px;
+  border-top: 2px solid var(--color-accent);
+  border-right: 2px solid var(--color-accent);
+  transform: rotate(45deg);
+}
+
+/* 写真全体を押せるボタン（JSが使えるときだけ表示） */
+.work-card__zoom {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 8px;
+  border-radius: var(--radius-small);
+  cursor: zoom-in;
+}
+
+.work-card__zoom:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.work-card__zoom-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--color-white);
+  background: rgba(43, 74, 92, 0.85);
+}
+
+.work-card__zoom-icon {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.work-modal {
+  width: min(100% - 32px, 960px);
+  max-height: calc(100% - 32px);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--color-text);
+  background: var(--color-white);
+}
+
+.work-modal::backdrop {
+  background: rgba(34, 42, 46, 0.6);
+}
+
+.work-modal[open] {
+  animation: work-modal-in 0.3s ease-out;
+}
+
+@keyframes work-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.work-modal__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 8px 16px 16px;
+}
+
+/* 写真をスクロールしても、閉じるボタンが見えるように上部に固定する */
+.work-modal__head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--color-white);
+}
+
+.work-modal__title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.work-modal__photos {
+  display: grid;
+  gap: 12px;
+}
+
+.work-modal__photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-small);
+  background: var(--color-photo);
+}
+
+/* 拡大時は切り抜かず、写真全体を見せる。スマホでは縦に2枚並ぶため、画面に収まる高さにする */
+.work-modal__image {
+  width: 100%;
+  max-height: 40vh;
+  object-fit: contain;
 }
 
 .work-card__visual--placeholder {
@@ -457,7 +627,7 @@ body {
 }
 
 .carousel__slide {
-  flex: 0 0 min(80%, 320px);
+  flex: 0 0 min(86%, 360px);
   scroll-snap-align: start;
 }
 
@@ -863,17 +1033,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
   font-size: clamp(24px, 6.2vw, 36px);
   font-weight: 700;
   line-height: 1.5;
-  color: var(--color-white);
-}
-
-.fv__title-line {
-  padding: 4px 16px;
-  border-radius: var(--radius-small);
-  background: var(--color-navy);
+  color: var(--color-navy);
 }
 
 .fv__illust {
@@ -1090,10 +1253,6 @@ body {
 .service__list {
   display: grid;
   gap: 24px;
-}
-
-.service__more {
-  text-align: center;
 }
 
 .works {
@@ -1358,6 +1517,33 @@ body {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  /* 施工前・施工後を左右に並べる（写真が1枚のときは1列） */
+  .work-modal__photos {
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+
+  .work-modal__inner {
+    padding: 8px 24px 24px;
+  }
+
+  .work-modal__image {
+    max-height: 70vh;
+  }
+
+  /* 「配管工事・その他」は横長カードにして、イラストの幅を上のカードにそろえる */
+  .service-card--wide {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    padding: 16px;
+  }
+
+  .service-card--wide .service-card__visual {
+    flex: 0 0 calc(50% - 28px);
+  }
+
   .message__inner {
     flex-direction: row;
     gap: 64px;
@@ -1431,6 +1617,14 @@ body {
     padding: 12px 0;
   }
 
+  .service-card--wide {
+    padding: 12px;
+  }
+
+  .service-card--wide .service-card__visual {
+    flex-basis: calc(25% - 36px);
+  }
+
   /* PCでは隣のカードが端で切れて見えないよう、表示枠をコンテンツ幅に収める */
   .carousel__viewport {
     margin: 0 var(--page-gutter);
@@ -1463,6 +1657,10 @@ body {
   .carousel__button,
   .carousel__dot::before {
     transition: none;
+  }
+
+  .work-modal[open] {
+    animation: none;
   }
 }
 

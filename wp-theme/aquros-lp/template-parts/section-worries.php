@@ -9,7 +9,7 @@
     <section class="worries" id="worries">
       <div class="worries__inner">
         <div class="section-heading" data-animate>
-          <p class="section-heading__eyebrow">おうちの「ちょっと困った」</p>
+          <p class="section-heading__eyebrow">水まわりの「ちょっと困った」</p>
           <h2 class="section-heading__title">こんなお悩みは<br>ありませんか？</h2>
         </div>
         <ul class="worries__list" data-animate="stagger">

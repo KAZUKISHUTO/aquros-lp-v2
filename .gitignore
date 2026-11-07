@@ -30,3 +30,6 @@ package-lock.json
 # WordPressテーマ（assets/ は scripts/build-theme.sh でコピーして作る）
 wp-theme/aquros-lp/assets/
 dist/
+
+# 写真の元データ（サイトには含めない）
+materials/

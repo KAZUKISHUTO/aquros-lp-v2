@@ -15,7 +15,7 @@
         <div class="faq__list" data-animate>
           <details class="faq__item" open>
             <summary class="faq__question"><span class="faq__q">Q.</span>こんな小さなことでも頼めますか？</summary>
-            <p class="faq__answer">もちろんです。床の小さなキズやドアの調子など、どんなことでもお気軽にどうぞ。</p>
+            <p class="faq__answer">もちろんです。蛇口の水漏れやトイレの調子など、どんなことでもお気軽にどうぞ。</p>
           </details>
           <details class="faq__item">
             <summary class="faq__question"><span class="faq__q">Q.</span>見積もりにお金はかかりますか？</summary>

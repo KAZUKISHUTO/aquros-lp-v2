@@ -14,11 +14,11 @@
             <span class="fv__title-line">と迷ったら、</span>
             <span class="fv__title-line">松戸のAQUROSへ。</span>
           </h1>
-          <img class="fv__illust" src="<?php aquros_asset( 'images/illust/fv-house.svg' ); ?>" alt="ドア・西日・床の傷など、家のあちこちに困りごとがある様子のイラスト" width="480" height="400" fetchpriority="high">
+          <img class="fv__illust" src="<?php aquros_asset( 'images/illust/fv-house.svg' ); ?>" alt="お風呂・洗面所・キッチン・トイレなど、家の水まわりをまとめて相談できることを表したイラスト" width="480" height="400" fetchpriority="high">
         </div>
         <div class="fv__body">
           <p class="fv__lead">松戸・柏で、15,000件以上のご依頼をいただいてきました<span class="fv__mark">※</span></p>
-          <p class="fv__text">床のキズ、ドアの調子、夏の西日に冬の冷え。おうちの「ちょっと困った」は、ひとつずつ別の業者を探さなくても大丈夫。まとめてAQUROSにご相談ください。</p>
+          <p class="fv__text">お風呂、トイレ、キッチン、洗面所。水まわりのリフォームや配管工事は、場所ごとに別の業者を探さなくても大丈夫。まとめてAQUROSにご相談ください。</p>
           <ul class="tag-list">
             <li class="tag-list__item">点検・お見積もり0円</li>
             <li class="tag-list__item">24時間365日受付</li>

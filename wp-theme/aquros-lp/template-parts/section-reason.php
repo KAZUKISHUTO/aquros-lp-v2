@@ -30,7 +30,7 @@
             <img class="reason-card__illust" src="<?php aquros_asset( 'images/illust/reason-certified.svg' ); ?>" alt="" width="200" height="140" loading="lazy">
             <span class="reason-card__number">03</span>
             <h3 class="reason-card__title">水道局の指定工事店。<br>確かな技術で仕上げます</h3>
-            <p class="reason-card__text">AQUROSは、水道局から認可を受けた松戸市指定工事店です。水まわりで培った技術で、住まいの修理もしっかり仕上げます。</p>
+            <p class="reason-card__text">AQUROSは、水道局から認可を受けた松戸市指定工事店です。水道工事で培った技術で、見えない配管まで水まわりのリフォームをしっかり仕上げます。</p>
           </article>
         </div>
       </div>

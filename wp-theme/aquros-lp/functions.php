@@ -16,9 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 function aquros_page_meta() {
 	return array(
-		'title'       => '松戸・柏の住まいのリペア・リフォーム相談｜AQUROS（アクラス）',
-		'description' => '床のキズ、ドアの調子、夏の西日に冬の冷え。おうちの「ちょっと困った」をまとめて相談できる、松戸市小金原のAQUROS（アクラス）。点検・お見積もり0円、LINEで写真を送るだけで概算がわかります。',
-		'image_alt'   => '「どこに頼めば…」と迷ったら、松戸のAQUROSへ。お風呂・洗面台・キッチン・トイレの交換',
+		'title'       => '松戸・柏の水まわりリフォーム｜お風呂・トイレ・キッチン・洗面所｜AQUROS（アクラス）',
+		'description' => 'お風呂・トイレ・キッチン・洗面所の交換や配管工事など、水まわりのリフォームをまとめて相談できる、松戸市小金原のAQUROS（アクラス）。水道局指定工事店。点検・お見積もり0円、LINEで写真を送るだけで概算がわかります。',
+		'image_alt'   => '「どこに頼めば…」と迷ったら、松戸のAQUROSへ。お風呂・トイレ・キッチン・洗面所の水まわりリフォーム',
 	);
 }
 
@@ -29,8 +29,9 @@ function aquros_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'html5', array( 'script', 'style' ) );
-	// 施工事例の写真（カードの表示比率 4:3）
-	add_image_size( 'aquros-work', 640, 480, true );
+	// 施工事例の写真（施工前・施工後は縦長 3:4、1枚だけのときは 3:2）
+	add_image_size( 'aquros-work-compare', 600, 800, true );
+	add_image_size( 'aquros-work', 720, 480, true );
 }
 add_action( 'after_setup_theme', 'aquros_setup' );
 
@@ -266,7 +267,7 @@ function aquros_register_post_types() {
 				'all_items'             => '施工事例一覧',
 				'search_items'          => '施工事例を検索',
 				'not_found'             => '施工事例はまだありません',
-				'featured_image'        => '施工写真',
+				'featured_image'        => '施工写真（1枚だけ載せる場合）',
 				'set_featured_image'    => '施工写真を設定',
 				'remove_featured_image' => '施工写真を削除',
 				'use_featured_image'    => '施工写真として使用',
@@ -298,6 +299,25 @@ function aquros_register_fields() {
 			'key'      => 'group_aquros_works',
 			'title'    => '施工事例の情報',
 			'fields'   => array(
+				array(
+					'key'           => 'field_aquros_works_before',
+					'label'         => '施工前の写真',
+					'name'          => 'works_before',
+					'type'          => 'image',
+					'return_format' => 'id',
+					'preview_size'  => 'medium',
+					'instructions'  => '施工前・施工後の両方を設定すると、左右に並べて表示します',
+					'wrapper'       => array( 'width' => '50' ),
+				),
+				array(
+					'key'           => 'field_aquros_works_after',
+					'label'         => '施工後の写真',
+					'name'          => 'works_after',
+					'type'          => 'image',
+					'return_format' => 'id',
+					'preview_size'  => 'medium',
+					'wrapper'       => array( 'width' => '50' ),
+				),
 				array(
 					'key'          => 'field_aquros_works_area',
 					'label'        => '地域',
@@ -345,6 +365,21 @@ function aquros_field( $name, $post_id = null ) {
 	$post_id = $post_id ? $post_id : get_the_ID();
 	$value   = function_exists( 'get_field' ) ? get_field( $name, $post_id ) : get_post_meta( $post_id, $name, true );
 	return is_string( $value ) ? $value : '';
+}
+
+/**
+ * 画像のカスタムフィールド（添付ファイルID）
+ *
+ * @param string   $name    フィールド名。
+ * @param int|null $post_id 投稿ID（省略時は現在の投稿）。
+ */
+function aquros_image_field( $name, $post_id = null ) {
+	$post_id = $post_id ? $post_id : get_the_ID();
+	$value   = function_exists( 'get_field' ) ? get_field( $name, $post_id ) : get_post_meta( $post_id, $name, true );
+	if ( is_array( $value ) && isset( $value['ID'] ) ) {
+		$value = $value['ID'];
+	}
+	return absint( $value );
 }
 
 /**

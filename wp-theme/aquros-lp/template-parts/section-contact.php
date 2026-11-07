@@ -15,7 +15,7 @@
         </div>
         <ol class="contact__steps" data-animate="stagger">
           <li class="contact__step"><span class="contact__number">STEP 1</span><strong class="contact__step-title">友だち追加</strong><span class="contact__step-text">下のボタンから、AQUROSのLINEを追加します。</span></li>
-          <li class="contact__step"><span class="contact__number">STEP 2</span><strong class="contact__step-title">写真とひとことを送る</strong><span class="contact__step-text">「ドアが閉まりにくい」など、短くて大丈夫です。</span></li>
+          <li class="contact__step"><span class="contact__number">STEP 2</span><strong class="contact__step-title">写真とひとことを送る</strong><span class="contact__step-text">「トイレの水が止まらない」など、短くて大丈夫です。</span></li>
           <li class="contact__step"><span class="contact__number">STEP 3</span><strong class="contact__step-title">担当者からお返事</strong><span class="contact__step-text">内容を見て、トークでお返事します。</span></li>
         </ol>
         <div class="contact__action" data-hide-fixed-cta>
