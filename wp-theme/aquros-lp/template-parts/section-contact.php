@@ -27,8 +27,7 @@
             <?php if ( get_theme_mod( 'aquros_line_qr' ) ) : ?>
               <?php echo wp_get_attachment_image( get_theme_mod( 'aquros_line_qr' ), 'medium', false, array( 'class' => 'contact__qr-image', 'alt' => 'LINE友だち追加用のQRコード', 'loading' => 'lazy' ) ); ?>
             <?php else : ?>
-            <!-- QRコード画像は「外観 > カスタマイズ > AQUROS 連絡先」で設定 -->
-            <div class="contact__qr-placeholder">QRコード</div>
+            <img class="contact__qr-image" src="<?php aquros_asset( 'images/line-qr.svg' ); ?>" alt="LINE友だち追加用のQRコード" width="120" height="120" loading="lazy">
             <?php endif; ?>
             <p class="contact__qr-text">パソコンでご覧の方は<br>スマートフォンで<br>読み取ってください</p>
           </div>

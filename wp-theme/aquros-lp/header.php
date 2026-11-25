@@ -17,7 +17,7 @@
   <?php wp_body_open(); ?>
   <header class="header">
     <div class="header__inner">
-      <a class="header__logo" href="#top" aria-label="AQUROS（アクラス）ページの先頭へ">
+      <a class="header__logo" href="<?php echo esc_url( home_url( '/#top' ) ); ?>" aria-label="AQUROS（アクラス）ページの先頭へ">
         <span class="header__logo-en">AQUROS</span>
         <span class="header__logo-ja">アクラス</span>
       </a>
@@ -46,16 +46,16 @@
       </div>
       <nav class="drawer__nav" aria-label="ページ内">
         <ul class="drawer__list">
-          <li class="drawer__item" style="--i: 0"><a class="drawer__link" href="#worries" data-menu-link>こんなお困りごと</a></li>
-          <li class="drawer__item" style="--i: 1"><a class="drawer__link" href="#message" data-menu-link>代表からのごあいさつ</a></li>
-          <li class="drawer__item" style="--i: 2"><a class="drawer__link" href="#reason" data-menu-link>選ばれる3つのこと</a></li>
-          <li class="drawer__item" style="--i: 3"><a class="drawer__link" href="#service" data-menu-link>AQUROSにできること</a></li>
+          <li class="drawer__item" style="--i: 0"><a class="drawer__link" href="<?php echo esc_url( home_url( '/#worries' ) ); ?>" data-menu-link>こんなお困りごと</a></li>
+          <li class="drawer__item" style="--i: 1"><a class="drawer__link" href="<?php echo esc_url( home_url( '/#message' ) ); ?>" data-menu-link>代表からのごあいさつ</a></li>
+          <li class="drawer__item" style="--i: 2"><a class="drawer__link" href="<?php echo esc_url( home_url( '/#reason' ) ); ?>" data-menu-link>選ばれる3つのこと</a></li>
+          <li class="drawer__item" style="--i: 3"><a class="drawer__link" href="<?php echo esc_url( home_url( '/#service' ) ); ?>" data-menu-link>AQUROSにできること</a></li>
           <?php if ( aquros_works_query()->have_posts() ) : ?>
-          <li class="drawer__item" style="--i: 4"><a class="drawer__link" href="#works" data-menu-link>施工事例</a></li>
+          <li class="drawer__item" style="--i: 4"><a class="drawer__link" href="<?php echo esc_url( home_url( '/#works' ) ); ?>" data-menu-link>施工事例</a></li>
           <?php endif; ?>
-          <li class="drawer__item" style="--i: 5"><a class="drawer__link" href="#flow" data-menu-link>ご相談の流れ</a></li>
-          <li class="drawer__item" style="--i: 6"><a class="drawer__link" href="#faq" data-menu-link>よくあるご質問</a></li>
-          <li class="drawer__item" style="--i: 7"><a class="drawer__link" href="#contact" data-menu-link>お問い合わせ</a></li>
+          <li class="drawer__item" style="--i: 5"><a class="drawer__link" href="<?php echo esc_url( home_url( '/#flow' ) ); ?>" data-menu-link>ご相談の流れ</a></li>
+          <li class="drawer__item" style="--i: 6"><a class="drawer__link" href="<?php echo esc_url( home_url( '/#faq' ) ); ?>" data-menu-link>よくあるご質問</a></li>
+          <li class="drawer__item" style="--i: 7"><a class="drawer__link" href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" data-menu-link>お問い合わせ</a></li>
         </ul>
       </nav>
       <div class="drawer__contact">

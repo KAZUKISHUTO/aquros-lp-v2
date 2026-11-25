@@ -1414,18 +1414,6 @@ body {
   gap: 16px;
 }
 
-.contact__qr-placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 120px;
-  border: 1px dashed #8c979b;
-  border-radius: var(--radius-small);
-  font-size: 12px;
-  color: var(--color-sub);
-  background: var(--color-white);
-}
-
 .contact__qr-image {
   width: 120px;
   height: 120px;
@@ -1449,12 +1437,16 @@ body {
   text-decoration: underline;
 }
 
-/* WordPress化したときの固定ページ（プライバシーポリシーなど） */
-.page {
+/* 下層ページ（プライバシーポリシーなど）。WordPressが<body>に付ける「page」クラスと重ならない名前にする */
+.subpage {
   padding: 64px var(--page-gutter) var(--section-space);
 }
 
-.page__inner {
+.page-privacy {
+  padding-bottom: 0;
+}
+
+.subpage__inner {
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -1462,31 +1454,46 @@ body {
   margin: 0 auto;
 }
 
-.page__title {
+.subpage__title {
   font-size: var(--font-size-heading);
   font-weight: 700;
   line-height: 1.6;
 }
 
-.page__content {
+.subpage__content {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.page__content h2 {
+.subpage__content h2 {
   font-size: 20px;
   font-weight: 700;
   line-height: 1.6;
 }
 
-.page__content ul,
-.page__content ol {
+.subpage__content ul,
+.subpage__content ol {
   padding-left: 1.5em;
   list-style: revert;
 }
 
-.page__content a {
+.subpage__content a {
+  color: var(--color-navy);
+  text-decoration: underline;
+}
+
+.subpage__date {
+  color: var(--color-sub);
+  text-align: right;
+}
+
+/* 下層ページのヘッダー：トップページへ戻るリンク */
+.header__back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 500;
   color: var(--color-navy);
   text-decoration: underline;
 }
@@ -1511,7 +1518,6 @@ body {
     flex-basis: calc((100% - 16px) / 2);
   }
 
-  .worries__list,
   .service__list,
   .flow__list {
     grid-template-columns: repeat(2, minmax(0, 1fr));

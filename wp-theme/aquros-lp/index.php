@@ -7,14 +7,14 @@
 
 get_header();
 ?>
-    <section class="page">
-      <div class="page__inner">
+    <section class="subpage">
+      <div class="subpage__inner">
         <?php
         while ( have_posts() ) :
           the_post();
           ?>
-        <h1 class="page__title"><?php the_title(); ?></h1>
-        <div class="page__content">
+        <h1 class="subpage__title"><?php the_title(); ?></h1>
+        <div class="subpage__content">
           <?php the_content(); ?>
         </div>
           <?php

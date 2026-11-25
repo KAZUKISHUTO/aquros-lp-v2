@@ -12,7 +12,7 @@
     <div class="footer__inner">
       <div class="footer__info">
         <p class="footer__logo">AQUROS<span class="footer__logo-ja">アクラス</span></p>
-        <p class="footer__address">運営会社：株式会社廣瀬興業（2017年設立）<br>代表取締役：廣瀬 学<br>松戸市指定工事店<br>〒270-0021 千葉県松戸市小金原4-11-11 鈴木店舗102<br>TEL <?php echo esc_html( aquros_tel() ); ?>／FAX 047-710-9009</p>
+        <p class="footer__address">運営会社：株式会社廣瀬興業<br>代表取締役：廣瀬 学<br>松戸市指定工事店<br>〒270-0021 千葉県松戸市小金原4-11-11 鈴木店舗102<br>TEL <?php echo esc_html( aquros_tel() ); ?>／FAX 047-710-9009</p>
         <div class="footer__sns">
           <p class="footer__sns-title">SNSでもAQUROSをチェック</p>
           <ul class="footer__sns-list">

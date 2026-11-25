@@ -8,6 +8,7 @@
 ```text
 aquros-lp-v2/
 ├── index.html
+├── privacy.html             プライバシーポリシー
 ├── README.md
 ├── scripts/
 │   └── build-theme.sh       WordPressテーマのzipを作る
@@ -53,10 +54,8 @@ npx terser@5 assets/js/main.js -c -m -o assets/js/main.min.js
 
 | 箇所 | 内容 |
 |---|---|
-| LINEボタン（5か所） | `https://lin.ee/XXXXXXX` をLINE公式アカウントの友だち追加URLに一括置換 |
-| 問い合わせ欄のQRコード | `contact__qr-placeholder` を QRコード画像（`assets/images/line-qr.png` 想定）に差し替え |
 | 施工事例 | 各事例の地域・工期・費用（`[市区町村]`・`[日数]`・`[金額]`）を差し替え |
-| プライバシーポリシー | フッターのリンク先URLを設定 |
+| プライバシーポリシー | 制定日（`[2026年○月○日]`）を記入。内容はお客様・専門家に確認のうえ確定 |
 
 あわせて、OGP（`og:image`等）、favicon、GA4・広告タグを公開環境に合わせて追加する。
 
@@ -66,6 +65,7 @@ npx terser@5 assets/js/main.js -c -m -o assets/js/main.min.js
 |---|---|---|
 | illust/*.svg | FV・お悩み・選ばれる理由・サービス・流れ・問い合わせ | 本LP用に制作したオリジナルイラスト |
 | ceo.webp | 代表あいさつ | クライアント提供（代表 廣瀬 学） |
+| line-qr.svg | 問い合わせ欄のQRコード | 公式LINEのURL（https://lin.ee/S25ZjuwI）から生成。URLを変えたら作り直す |
 | line-icon.png | LINEボタン | LINEヤフー提供の公式アイコン（無改変・縮小のみ） |
 | works/*-before.jpg・*-after.jpg | 施工事例 | クライアント提供の施工写真（長辺800pxに縮小）。元データは`materials/works/`（Git管理外） |
 
@@ -82,6 +82,9 @@ wp-theme/aquros-lp/
 ├── header.php / footer.php
 ├── front-page.php       トップページ（template-partsを順に読み込む）
 ├── index.php            固定ページ（プライバシーポリシーなど）
+├── inc/
+│   ├── initial-content.php  テーマ有効化時の初期データ登録（施工事例・プライバシーポリシー）
+│   └── privacy-policy.html  プライバシーポリシーの文面
 ├── screenshot.png
 └── template-parts/      section-*.php（各セクション）
 ```
@@ -96,18 +99,27 @@ sh scripts/build-theme.sh   # dist/aquros-lp.zip ができる
 
 管理画面の「外観 > テーマ > 新規追加 > テーマのアップロード」で`dist/aquros-lp.zip`をアップロードし、有効化する。
 
+有効化すると、静的版と同じ内容が自動で登録される。
+
+- 施工事例5件（施工前・施工後の写真はメディアライブラリに登録）。施工事例が1件もないときに一度だけ実行し、あとから削除した事例が再有効化で戻ることはない
+- プライバシーポリシーの固定ページ（設定 > プライバシー にも登録）
+- 地域・工期・費用は未入力のため、カードには表示されない。決まったら管理画面の施工事例から入力する
+- 先にACF（Advanced Custom Fields）を有効化しておくと、入力欄がすぐ使える
+
 ### 管理画面で更新する項目
 
 | 項目 | 場所 |
 |---|---|
 | LINE 友だち追加URL・QRコード画像・電話番号 | 外観 > カスタマイズ > AQUROS 連絡先 |
 | 施工事例（工事名・施工前/施工後の写真・地域・工期・費用・並び順） | 施工事例（カスタム投稿）。写真・地域・工期・費用はACFの入力欄。施工前と施工後の両方があれば左右に並べ、なければアイキャッチ画像を1枚表示する |
-| プライバシーポリシーのリンク | 設定 > プライバシー で選んだページ（未設定ならリンクを出さない） |
+| プライバシーポリシー | テーマ有効化時に`inc/privacy-policy.html`の文面で固定ページを作成し、設定 > プライバシー に登録する（公開済みのページがあれば何もしない）。以降の修正は管理画面の固定ページで行う |
 | ファビコン | 外観 > カスタマイズ > サイト基本情報 > サイトアイコン（未設定ならテーマの画像を使う） |
 
 - 必要なプラグイン：Advanced Custom Fields（無料版）。入力欄は`functions.php`で登録しているため、ACF側での設定は不要
 - 施工事例が1件もない間は、施工事例セクションとメニューの項目を表示しない
 - タイトル・説明文・OGPは`functions.php`の`aquros_page_meta()`で出力している。SEOプラグインを入れる場合は二重出力にならないよう、`aquros_output_meta`のフックを外す
+- プライバシーポリシーの文面は`wp-theme/aquros-lp/inc/privacy-policy.html`が元。静的版の`privacy.html`にも同じ文面を入れているので、変えるときは両方を直す
+- 下層ページのクラス名は`.subpage`（WordPressが固定ページの`<body>`に`page`クラスを付けるため、`.page`は使わない）
 - 本文の文章（お悩み・できること・FAQなど）は`template-parts/`に直接書いている。変更するときは静的版の`index.html`と両方を直す
 - 必要環境：WordPress 6.3以上、PHP 7.4以上
 

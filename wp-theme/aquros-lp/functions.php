@@ -179,7 +179,7 @@ function aquros_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'aquros_line_url',
 		array(
-			'default'           => 'https://lin.ee/XXXXXXX',
+			'default'           => 'https://lin.ee/S25ZjuwI',
 			'sanitize_callback' => 'esc_url_raw',
 		)
 	);
@@ -205,9 +205,10 @@ function aquros_customize_register( $wp_customize ) {
 			$wp_customize,
 			'aquros_line_qr',
 			array(
-				'label'     => 'LINE QRコード画像',
-				'section'   => 'aquros_contact',
-				'mime_type' => 'image',
+				'label'       => 'LINE QRコード画像',
+				'description' => '未設定のときは、テーマ内のQRコード（https://lin.ee/S25ZjuwI）を表示します。LINEのURLを変えたら、こちらも差し替えてください',
+				'section'     => 'aquros_contact',
+				'mime_type'   => 'image',
 			)
 		)
 	);
@@ -234,7 +235,7 @@ add_action( 'customize_register', 'aquros_customize_register' );
  * LINE 友だち追加URL
  */
 function aquros_line_url() {
-	return get_theme_mod( 'aquros_line_url', 'https://lin.ee/XXXXXXX' );
+	return get_theme_mod( 'aquros_line_url', 'https://lin.ee/S25ZjuwI' );
 }
 
 /**
@@ -402,3 +403,6 @@ function aquros_works_query() {
 	}
 	return $query;
 }
+
+// テーマ有効化時に入れる初期データ（施工事例・プライバシーポリシー）
+require get_theme_file_path( 'inc/initial-content.php' );
