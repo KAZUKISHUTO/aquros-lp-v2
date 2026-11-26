@@ -10,7 +10,7 @@
       <div class="appeal__inner">
         <div class="appeal__heading" data-animate>
           <p class="appeal__eyebrow">松戸の水まわりの、かかりつけ窓口</p>
-          <h2 class="appeal__title">水まわりのことは、<br>まずAQUROSに<br>聞けばいい。</h2>
+          <h2 class="appeal__title">水まわりのことは、<br>まずAQUROSに<br class="br-sp">聞けばいい。</h2>
         </div>
         <ul class="appeal__list" data-animate="stagger">
           <li class="appeal__item"><span class="appeal__label">出張点検</span><strong class="appeal__value appeal__value--accent">0円</strong></li>

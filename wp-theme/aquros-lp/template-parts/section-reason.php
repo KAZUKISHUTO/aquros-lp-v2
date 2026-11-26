@@ -10,7 +10,7 @@
       <div class="reason__inner">
         <div class="section-heading" data-animate>
           <p class="section-heading__eyebrow">安心していただける理由</p>
-          <h2 class="section-heading__title">AQUROSが<br>選ばれる3つのこと</h2>
+          <h2 class="section-heading__title">AQUROSが<br class="br-sp">選ばれる3つのこと</h2>
         </div>
         <div class="reason__list" data-animate="stagger">
           <article class="reason-card">

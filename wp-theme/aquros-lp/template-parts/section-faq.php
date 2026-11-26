@@ -10,7 +10,7 @@
       <div class="faq__inner">
         <div class="section-heading" data-animate>
           <p class="section-heading__eyebrow">よくいただくご質問</p>
-          <h2 class="section-heading__title">気になること、<br>お答えします</h2>
+          <h2 class="section-heading__title">気になること、<br class="br-sp">お答えします</h2>
         </div>
         <div class="faq__list" data-animate>
           <details class="faq__item" open>

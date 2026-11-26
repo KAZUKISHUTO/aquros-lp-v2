@@ -38,6 +38,11 @@ html {
   display: none !important;
 }
 
+/* 言葉の途中で折り返さないまとまり（入りきらないときは、まとまりの切れ目で折り返す） */
+.nowrap {
+  display: inline-block;
+}
+
 body {
   padding-bottom: var(--fixed-cta-space);
   font-family: var(--font-family-base);
@@ -1507,6 +1512,11 @@ body {
 }
 
 @media (min-width: 768px) {
+  /* 見出しの改行はスマホだけ。タブレット・PCは1行に収まるので改行しない */
+  .br-sp {
+    display: none;
+  }
+
   .header__line {
     display: inline-flex;
   }

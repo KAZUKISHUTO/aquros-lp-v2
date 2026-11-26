@@ -10,7 +10,7 @@
       <div class="contact__inner">
         <img class="contact__illust" src="<?php aquros_asset( 'images/illust/contact-phone.svg' ); ?>" alt="" width="240" height="160" loading="lazy">
         <div class="section-heading" data-animate>
-          <h2 class="section-heading__title">写真を1枚送るだけ。<br>まずはLINEでどうぞ</h2>
+          <h2 class="section-heading__title">写真を1枚送るだけ。<br class="br-sp">まずはLINEでどうぞ</h2>
           <p class="section-heading__lead section-heading__lead--left">困ったときに、頼れるプロがいます。何から直せばいいか決まっていなくても大丈夫。点検・お見積もりは0円です。</p>
         </div>
         <ol class="contact__steps" data-animate="stagger">

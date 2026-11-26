@@ -10,7 +10,7 @@
       <div class="worries__inner">
         <div class="section-heading" data-animate>
           <p class="section-heading__eyebrow">水まわりの「ちょっと困った」</p>
-          <h2 class="section-heading__title">こんなお悩みは<br>ありませんか？</h2>
+          <h2 class="section-heading__title">こんなお悩みは<br class="br-sp">ありませんか？</h2>
         </div>
         <ul class="worries__list" data-animate="stagger">
           <!-- TODO: 補足文（2行目）は仮。お客様に確認のうえ確定 -->
