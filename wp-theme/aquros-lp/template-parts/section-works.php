@@ -26,14 +26,8 @@ if ( ! $works->have_posts() ) {
               $before = aquros_image_field( 'works_before' );
               $after  = aquros_image_field( 'works_after' );
               $area   = aquros_field( 'works_area' );
-              $period = aquros_field( 'works_period' );
-              $cost   = aquros_field( 'works_cost' );
-              $meta   = array_filter(
-                array(
-                  $period ? '工期 ' . $period : '',
-                  $cost ? '費用 ' . $cost : '',
-                )
-              );
+              $period  = aquros_field( 'works_period' );
+              $comment = aquros_field( 'works_comment' );
               ?>
             <article class="work-card carousel__slide">
               <?php if ( $before && $after ) : ?>
@@ -61,8 +55,11 @@ if ( ! $works->have_posts() ) {
               <span class="work-card__area"><?php echo esc_html( $area ); ?></span>
               <?php endif; ?>
               <h3 class="work-card__title"><?php the_title(); ?></h3>
-              <?php if ( $meta ) : ?>
-              <p class="work-card__meta"><?php echo esc_html( implode( '／', $meta ) ); ?></p>
+              <?php if ( $period ) : ?>
+              <p class="work-card__meta">工期 <?php echo esc_html( $period ); ?></p>
+              <?php endif; ?>
+              <?php if ( $comment ) : ?>
+              <p class="work-card__comment"><?php echo esc_html( $comment ); ?></p>
               <?php endif; ?>
             </article>
               <?php

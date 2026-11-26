@@ -15,14 +15,40 @@ if ( ! defined( 'ABSPATH' ) ) {
  * 施工事例の初期データ（静的版 index.html と同じ内容・同じ順番）
  *
  * キーは写真のファイル名。assets/images/works/ の「キー-before.jpg」「キー-after.jpg」を使う。
+ * 地域・工期・ひとことは仮の内容（お客様に確認のうえ確定）。
  */
 function aquros_initial_works() {
 	return array(
-		'toilet'         => 'トイレの交換',
-		'washbasin'      => '洗面台の交換',
-		'shower-faucet'  => '浴室のシャワー水栓の交換',
-		'bathtub-faucet' => '浴槽の水栓の交換',
-		'water-heater'   => '給湯器の交換',
+		'toilet'         => array(
+			'title'   => 'トイレの交換',
+			'area'    => '松戸市',
+			'period'  => '1日',
+			'comment' => '節水型のトイレに替えて、毎日のお掃除も楽になりました。',
+		),
+		'washbasin'      => array(
+			'title'   => '洗面台の交換',
+			'area'    => '柏市',
+			'period'  => '1日',
+			'comment' => '収納が増えて、洗面まわりがすっきり片づきました。',
+		),
+		'shower-faucet'  => array(
+			'title'   => '浴室のシャワー水栓の交換',
+			'area'    => '松戸市',
+			'period'  => '半日',
+			'comment' => 'お湯の温度を合わせやすくなり、シャワーが快適になりました。',
+		),
+		'bathtub-faucet' => array(
+			'title'   => '浴槽の水栓の交換',
+			'area'    => '柏市',
+			'period'  => '半日',
+			'comment' => 'ポタポタと続いていた水漏れが止まり、安心してお使いいただけます。',
+		),
+		'water-heater'   => array(
+			'title'   => '給湯器の交換',
+			'area'    => '松戸市',
+			'period'  => '1日',
+			'comment' => 'お湯がすぐに出るようになり、冬のお風呂も快適です。',
+		),
 	);
 }
 
@@ -87,7 +113,8 @@ function aquros_setup_initial_works() {
 	}
 
 	$order = 0;
-	foreach ( aquros_initial_works() as $key => $title ) {
+	foreach ( aquros_initial_works() as $key => $work ) {
+		$title   = $work['title'];
 		$post_id = wp_insert_post(
 			array(
 				'post_type'   => 'works',
@@ -98,6 +125,10 @@ function aquros_setup_initial_works() {
 		);
 		if ( ! $post_id || is_wp_error( $post_id ) ) {
 			continue;
+		}
+		foreach ( array( 'area', 'period', 'comment' ) as $field ) {
+			update_post_meta( $post_id, "works_{$field}", $work[ $field ] );
+			update_post_meta( $post_id, "_works_{$field}", "field_aquros_works_{$field}" );
 		}
 		foreach ( array(
 			'before' => '施工前',

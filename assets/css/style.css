@@ -516,6 +516,14 @@ body {
   color: var(--color-sub);
 }
 
+/* 施工内容のひとこと */
+.work-card__comment {
+  padding: 12px 16px;
+  border-radius: var(--radius);
+  line-height: 1.8;
+  background: var(--color-bg-soft);
+}
+
 .flow-step {
   display: flex;
   align-items: center;

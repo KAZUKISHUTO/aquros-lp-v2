@@ -334,11 +334,13 @@ function aquros_register_fields() {
 					'instructions' => '例：2日',
 				),
 				array(
-					'key'          => 'field_aquros_works_cost',
-					'label'        => '費用',
-					'name'         => 'works_cost',
-					'type'         => 'text',
-					'instructions' => '例：45万円（税込）',
+					'key'          => 'field_aquros_works_comment',
+					'label'        => 'ひとこと',
+					'name'         => 'works_comment',
+					'type'         => 'textarea',
+					'rows'         => 2,
+					'new_lines'    => '',
+					'instructions' => '工事の内容や、工事後の様子を短く。例：節水型のトイレに替えて、毎日のお掃除も楽になりました。',
 				),
 			),
 			'location' => array(
